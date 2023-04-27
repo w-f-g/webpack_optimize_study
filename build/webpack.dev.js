@@ -25,7 +25,7 @@ const config = {
     hot: true,
     open: true,
     compress: true,
-    setupMiddlewares: resolve(__dirname, '../mock')
+    setupMiddlewares: require('../mock')
   },
   mode: 'development',
   devtool: 'cheap-module-source-map',
