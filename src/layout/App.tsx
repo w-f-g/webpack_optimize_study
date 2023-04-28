@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import './App.scss'
-import ThemeProvider, { ThemeType } from './ThemeProvider'
+import ThemeProvider/* , { ThemeType } */ from './ThemeProvider'
 import Header from './Header'
 import styled from 'styled-components'
 import Observer from '@/components/Observer'
@@ -36,8 +36,8 @@ function App() {
   const list = useRef<ChartsList[]>([])
   const init = async () => {
     setLoading(true)
-    let res = await getProductIds()
-    let _list: ChartsList[] = res.map(item => {
+    const res = await getProductIds()
+    const _list: ChartsList[] = res.map(item => {
       return {
         ...item,
         data: null,
@@ -52,11 +52,12 @@ function App() {
 
   const handleVisibleOnce = useCallback((id: number, index: number) => {
     const fn = () => {
-      return new Promise(async (resolve) => {
-        let res = await getDataById()
-        list.current[index].data = res
-        forceUpdate({})
-        resolve(true)
+      return new Promise((resolve) => {
+        getDataById().then(res => {
+          list.current[index].data = res
+          forceUpdate({})
+          resolve(true)
+        })
       })
     }
     return () => {
@@ -65,7 +66,7 @@ function App() {
   }, [])
   return (
     <ThemeProvider>
-      {(updateTheme) => {
+      {(/* updateTheme */) => {
         return (
           <>
             <Header />

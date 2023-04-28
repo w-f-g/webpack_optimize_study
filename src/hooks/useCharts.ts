@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 import { init as echartsInit, EChartsType } from 'echarts'
-import { debounce } from "lodash-es"
+import { debounce } from 'lodash-es'
 
 
 export function useCharts() {
@@ -15,13 +15,13 @@ export function useCharts() {
         chart.current.resize()
       }
     }, 500)
-    window.addEventListener("resize", _resize)
+    window.addEventListener('resize', _resize)
     return () => {
       if (chart.current) {
         chart.current.dispose()
         chart.current = null
       }
-      window.removeEventListener("resize", _resize)
+      window.removeEventListener('resize', _resize)
     }
   }, [chartNode])
   return {

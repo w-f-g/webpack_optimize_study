@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const { merge } = require('webpack-merge')
 const baseConfig = require('./webpack.base')
@@ -25,7 +26,7 @@ const config = {
     hot: true,
     open: true,
     compress: true,
-    setupMiddlewares: require('../mock')
+    setupMiddlewares: require('../mock'),
   },
   mode: 'development',
   devtool: 'cheap-module-source-map',

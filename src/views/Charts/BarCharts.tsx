@@ -1,5 +1,5 @@
 import { useCharts } from '@/hooks/useCharts'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { ChartProps, ChartsBox } from '.'
 
 export default function BarCharts({xAxis, data}: ChartProps) {

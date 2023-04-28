@@ -1,8 +1,9 @@
-import { Spin } from "antd";
+import React from 'react'
+import { Spin } from 'antd'
 
 export function Loading() {
   return (
-    <div className="flex-center" style={{height: "100%"}}>
+    <div className="flex-center" style={{height: '100%'}}>
       <Spin />
     </div>
   )

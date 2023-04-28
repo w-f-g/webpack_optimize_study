@@ -1,4 +1,4 @@
-type Task = () => Promise<any>
+type Task = () => Promise<unknown>
 
 /* 
   参考 https://www.douyin.com/user/MS4wLjABAAAAi2oukRVcHpgD-HbVdzsxE7tYykr91YuIKukR_X_Yy08EFWRQhRrECDF6FvbvT8Xa?modal_id=7207719586697907516
@@ -17,7 +17,7 @@ export class Schedule {
   run() {
     while(this.tasks.length && this.count < this.parallelCount) {
       this.count++
-      const task = this.tasks.shift()!
+      const task = this.tasks.shift()
       task()
         .then(() => {
           this.count--

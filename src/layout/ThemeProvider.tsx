@@ -1,8 +1,8 @@
-import { Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState } from 'react'
+import React, { Dispatch, ReactNode, SetStateAction, createContext, useEffect, useState } from 'react'
 
 export enum ThemeType {
-  LIGHT = "light",
-  DARK = "dark",
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 type ThemeProviderProps = {

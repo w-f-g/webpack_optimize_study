@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export type ChartProps = {
   xAxis: string[],
@@ -10,6 +10,6 @@ export const ChartsBox = styled.div`
   height: 100%;
 `
 
-export * from "./BarCharts"
-export * from "./LineCharts"
-export * from "./PieCharts"
+export * from './BarCharts'
+export * from './LineCharts'
+export * from './PieCharts'

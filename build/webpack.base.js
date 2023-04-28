@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const resolve = path.resolve
 
@@ -25,7 +27,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/i,
-        use: ['ts-loader'],
+        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
       }
     ],
@@ -45,5 +47,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
-  ]
+    new ESLintPlugin({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      exclude: ['dist'],
+      fix: true,
+    }),
+  ],
 }

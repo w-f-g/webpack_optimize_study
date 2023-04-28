@@ -49,14 +49,14 @@ export default function Observer(props: ObserverProps) {
       visible && visible(target.isIntersecting)
     }, Object.assign({
       threshold: 0.2,
-      rootMargin: "0px 17px 0px 0px",
+      rootMargin: '0px 17px 0px 0px',
     }, options))
     if (obsNode.current) {
       obs.observe(obsNode.current)
     }
     const _disconnect = () => {
       obs?.disconnect()
-      obs = null!
+      obs = null
     }
     return () => {
         _disconnect()

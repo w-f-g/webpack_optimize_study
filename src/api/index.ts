@@ -1,9 +1,9 @@
-import request from "@/utils/request"
-import { ChartProps } from "@/views/Charts"
-import { map } from "lodash-es"
-import { empty_data_01, empty_data_02 } from "./empty"
+import request from '@/utils/request'
+import { ChartProps } from '@/views/Charts'
+import { map } from 'lodash-es'
+import { empty_data_01, empty_data_02 } from './empty'
 
-const chartTypes = ["BarCharts", "LineCharts", "PieCharts"] as const
+const chartTypes = ['BarCharts', 'LineCharts', 'PieCharts'] as const
 const _getRandom = () => Math.floor(Math.random() * 10) % 3
 
 export type ProductIdsResponse = {
@@ -15,8 +15,8 @@ export const getProductIds = async (): Promise<ProductIdsResponse[]> => {
   let res
   try {
     res = await request({
-      url: "/api/getProductIds",
-      method: "get",
+      url: '/api/getProductIds',
+      method: 'get',
     })
   } catch(err) {
     res = null
@@ -27,7 +27,7 @@ export const getProductIds = async (): Promise<ProductIdsResponse[]> => {
   } else {
     data = empty_data_01
   }
-  let res$ = map(data, item => {
+  const res$ = map(data, item => {
       return {
         ...item,
         type: chartTypes[_getRandom()],
@@ -40,8 +40,8 @@ export const getDataById = async (): Promise<ChartProps> => {
   let res
   try {
     res = await request({
-      url: "/api/getDataById",
-      method: "get",
+      url: '/api/getDataById',
+      method: 'get',
     })
   } catch (error) {
     res = null

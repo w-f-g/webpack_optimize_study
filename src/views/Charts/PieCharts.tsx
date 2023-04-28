@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { map } from 'lodash-es'
 import { ChartProps, ChartsBox } from '.'
 import { useCharts } from '@/hooks/useCharts'

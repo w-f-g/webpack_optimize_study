@@ -5,7 +5,7 @@ import '@/styles/index.scss'
 // IntersectionObserver Polyfills
 import 'intersection-observer'
 
-const rootNode: HTMLElement = document.getElementById('root')!
+const rootNode: HTMLElement = document.getElementById('root')
 
 ReactDOM.createRoot(rootNode).render(
   <App />

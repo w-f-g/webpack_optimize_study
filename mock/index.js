@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Mock = require('mockjs')
 
 /* 
@@ -13,8 +14,8 @@ module.exports = function(middlewares) {
     path: '/api/getProductIds',
     middleware(_, res) {
       const { data } = Mock.mock({
-        "data|24": [{
-          "id|+1": 1011,
+        'data|24': [{
+          'id|+1': 1011,
         }],
       })
       res.send({
@@ -30,9 +31,9 @@ module.exports = function(middlewares) {
       const _getRandom = () => Math.floor(Math.random() * 60)
 
       const { data } = Mock.mock({
-        "data": {
-          "xAxis|5": ['@date("yyyy-MM-dd")'],
-          "yAxis|5": () => Array(5).fill(0).map(() => _getRandom()),
+        'data': {
+          'xAxis|5': ['@date("yyyy-MM-dd")'],
+          'yAxis|5': () => Array(5).fill(0).map(() => _getRandom()),
         },
       })
       setTimeout(() => {
